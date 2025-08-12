@@ -1,0 +1,31 @@
+<!-- داخل public/chat.html -->
+<textarea id="userMessage" placeholder="سوالت رو بنویس..."></textarea>
+<button onclick="sendMessage()">ارسال پیام</button>
+<div id="aiResponse"></div>
+
+<script>
+  async function sendMessage() {
+    const message = document.getElementById("userMessage").value.trim();
+    const responseBox = document.getElementById("aiResponse");
+
+    if (!message) {
+      responseBox.innerText = "لطفاً یک پیام وارد کن.";
+      return;
+    }
+
+    responseBox.innerText = "در حال دریافت پاسخ...";
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await res.json();
+      responseBox.innerText = data.reply;
+    } catch (err) {
+      responseBox.innerText = "خطا در اتصال به هوش مصنوعی.";
+    }
+  }
+</script>

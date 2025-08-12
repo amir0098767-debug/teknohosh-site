@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>پنل مدیریت | تکنو هوش</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-container {
+      max-width: 600px;
+      margin: 4rem auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .admin-container input {
+      width: 80%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .message-list {
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .message-item {
+      background: #eee;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    .night-mode .message-item {
+      background: #222;
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="day-mode">
+  <header class="header fade-in-up">
+    <div class="logo">🤖</div>
+    <div class="site-name">پنل مدیریت</div>
+    <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+  </header>
+
+  <main>
+    <div class="admin-container scroll-reveal" id="loginSection">
+      <h2>ورود مدیر</h2>
+      <input type="text" id="username" placeholder="نام کاربری">
+      <input type="password" id="password" placeholder="رمز عبور">
+      <button onclick="login()">ورود</button>
+      <p id="loginError" style="color:red;"></p>
+    </div>
+
+    <div class="admin-container scroll-reveal" id="panelSection" style="display:none;">
+      <h2>پیام‌های کاربران</h2>
+      <div class="message-list" id="messageList">
+        <!-- پیام‌ها اینجا نمایش داده می‌شن -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer scroll-reveal">
+    <p>© 2025 تکنو هوش</p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('day-mode');
+      document.body.classList.toggle('night-mode');
+      const btn = document.querySelector(".mode-toggle");
+      btn.textContent = document.body.classList.contains("night-mode") ? "☀️" : "🌙";
+    }
+
+    function login() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const error = document.getElementById("loginError");
+
+      if (user === "amir0098767" && pass === "x59x69x7") {
+        document.getElementById("loginSection").style.display = "none";
+        document.getElementById("panelSection").style.display = "block";
+        loadMessages();
+      } else {
+        error.textContent = "نام کاربری یا رمز اشتباه است.";
+      }
+    }
+
+    function loadMessages() {
+      const messages = [
+        "سلام، سایتتون عالیه!",
+        "چطور می‌تونم از API استفاده کنم؟",
+        "پاسخ هوش مصنوعی خیلی خوب بود، ممنون."
+      ];
+
+      const list = document.getElementById("messageList");
+      messages.forEach(msg => {
+        const item = document.createElement("div");
+        item.className = "message-item";
+        item.textContent = msg;
+        list.appendChild(item);
+      });
+    }
+
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll(".scroll-reveal").forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

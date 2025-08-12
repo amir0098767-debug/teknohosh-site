@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>تکنو هوش | هوش مصنوعی فارسی</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="day-mode">
+  <header class="header">
+    <div class="logo">🤖 تکنو هوش</div>
+    <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#">خانه</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="#">خدمات</a></li>
+        <li><a href="admin.html">پنل مدیریت</a></li>
+        <li><a href="#">تماس با ما</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero fade-in">
+    <h1>هوش مصنوعی فارسی</h1>
+    <p>با تکنو هوش، تجربه‌ای نو از تعامل با هوش مصنوعی به زبان فارسی داشته باشید.</p>
+    <button class="btn scroll-reveal" onclick="scrollToAI()">شروع گفتگو</button>
+  </section>
+
+  <section class="features fade-in-up">
+    <div class="card">🎯 پاسخ سریع و دقیق</div>
+    <div class="card">🌐 پشتیبانی از زبان فارسی</div>
+    <div class="card">🧠 یادگیری هوشمند</div>
+  </section>
+
+  <section class="ai-section scroll-reveal" id="aiSection">
+    <h2>گفتگو با هوش مصنوعی</h2>
+    <textarea id="prompt" placeholder="سوال خود را بنویسید..."></textarea>
+    <button onclick="askAI()">ارسال</button>
+    <div id="response"></div>
+  </section>
+
+  <footer class="footer fade-in-up">
+    <p>© 2025 تکنو هوش | طراحی با ❤️ توسط تیم تکنو هوش</p>
+  </footer>
+</body>
+</html>
