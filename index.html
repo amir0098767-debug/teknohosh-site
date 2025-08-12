@@ -2,47 +2,37 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>تکنو هوش | هوش مصنوعی فارسی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تکنو هوش</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
-<body class="day-mode">
-  <header class="header">
-    <div class="logo">🤖 تکنو هوش</div>
-    <button class="mode-toggle" onclick="toggleMode()">🌙</button>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <nav class="mobile-menu" id="mobileMenu">
-      <ul>
-        <li><a href="#">خانه</a></li>
-        <li><a href="#">درباره ما</a></li>
-        <li><a href="#">خدمات</a></li>
-        <li><a href="admin.html">پنل مدیریت</a></li>
-        <li><a href="#">تماس با ما</a></li>
+<body>
+  <header>
+    <img src="logo.png" alt="لوگوی تکنو هوش" class="logo">
+    <nav>
+      <ul class="menu">
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#chat">چت با هوش مصنوعی</a></li>
+        <li><a href="#social">کانال‌های ما</a></li>
       </ul>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
     </nav>
   </header>
 
-  <section class="hero fade-in">
-    <h1>هوش مصنوعی فارسی</h1>
-    <p>با تکنو هوش، تجربه‌ای نو از تعامل با هوش مصنوعی به زبان فارسی داشته باشید.</p>
-    <button class="btn scroll-reveal" onclick="scrollToAI()">شروع گفتگو</button>
-  </section>
+  <main>
+    <section id="chat">
+      <h2>چت با هوش مصنوعی</h2>
+      <div id="chat-box"></div>
+      <input type="text" id="user-input" placeholder="پیام خود را بنویسید...">
+      <button onclick="sendMessage()">ارسال</button>
+    </section>
 
-  <section class="features fade-in-up">
-    <div class="card">🎯 پاسخ سریع و دقیق</div>
-    <div class="card">🌐 پشتیبانی از زبان فارسی</div>
-    <div class="card">🧠 یادگیری هوشمند</div>
-  </section>
+    <section id="social">
+      <h2>کانال‌های ما در فضای مجازی</h2>
+      <a href="https://Rubika.ir/hooshemasnooei_t89" target="_blank">روبیکا: hooshemasnooei_t89</a>
+    </section>
+  </main>
 
-  <section class="ai-section scroll-reveal" id="aiSection">
-    <h2>گفتگو با هوش مصنوعی</h2>
-    <textarea id="prompt" placeholder="سوال خود را بنویسید..."></textarea>
-    <button onclick="askAI()">ارسال</button>
-    <div id="response"></div>
-  </section>
-
-  <footer class="footer fade-in-up">
-    <p>© 2025 تکنو هوش | طراحی با ❤️ توسط تیم تکنو هوش</p>
-  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
